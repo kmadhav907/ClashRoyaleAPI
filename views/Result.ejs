@@ -1,0 +1,44 @@
+<%-include('Header.ejs') %>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="card text-white bg-info" style="max-width: 25rem">
+      <div class="card-header">Player Profile</div>
+      <div class="card-body">
+        <h5 class="card-title">Player Name: <%= fav['name'] %></h5>
+        <br>
+        <h5 class='card-text'><%=fav['favCard']['name'] %></h5>
+        <img class="card-image" src=<%= fav['favCard']['iconUrls']['medium'] %> style='padding-left: 35px;' class='image-rounded'></img>
+        <br>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div> 
+ <br>
+  <br>
+  <br>
+<div class='card'>
+    <div class='row'>
+        <div class="col-md-4"><img src="https://cdn.dribbble.com/users/1056663/screenshots/3450402/victorybitch1.gif"
+                style='height: 100%; width: 80%' class='img-thumbnail'></div>
+
+        <div class="col-md-4">
+            <legend>Arena: </legend>
+            <h4><%=fav['arena']['name']  %> </h4>
+        </div>
+        <div class='col-md-3'>
+            
+        </div>
+    </div>
+</div>
+<br>
+<p><%=fav['arena']['iconUrls']  %> </p> 
+<br>
+<br>
+<a href="/" class='btn btn-warning'>Go Back</a>
+<%-include('Footer.ejs') %>
