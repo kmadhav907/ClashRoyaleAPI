@@ -27,15 +27,38 @@
         <div class="col-md-4"><img src="https://cdn.dribbble.com/users/1056663/screenshots/3450402/victorybitch1.gif"
                 style='height: 100%; width: 80%' class='img-thumbnail'></div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
+          
+          <h5>  Experience Level: <%= fav['battleHistroy']['explevel']  %> </h5>
+          
+          <h5><i class="fas fa-trophy"></i> <%= fav['battleHistroy']['trophies'] %></h5> 
+        
             <legend>Arena: </legend>
             <h4><%=fav['arena']['name']  %> </h4>
         </div>
-        <div class='col-md-3'>
-            
         </div>
     </div>
-</div>
+    <br>
+    <br>
+    <br>
+        <div class='col-md-9'>
+            <table class='table table-hover'>
+              <thead>
+                <tr>
+                  <th scope="col">Total Battles</th>
+                  <th scope="col">Wins</th>
+                  <th scope="col">Losses</th>
+                  <th scope="col">3- Crowns</th>
+                </tr>
+              </thead>
+              <tbody><tr><th><%= fav['battleHistroy']['battleCount']  %></th>
+                <th><%= fav['battleHistroy']['wins']  %></th>
+                <th><%= fav['battleHistroy']['losses']  %></th>
+                <th><%= fav['battleHistroy']['threeCrowns']  %></th> </tr></tbody>
+              
+            </table>
+        </div>
+
 <br>
 <p><%=fav['arena']['iconUrls']  %> </p> 
 <br>

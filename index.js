@@ -12,7 +12,7 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static('public'))
-let fav = { favCard: null, name: null, arena: null }
+let fav = { favCard: null, name: null, arena: null, battleHistroy: null }
 const baseURL = 'https://api.clashroyale.com/v1'
 const endpoint = '/players/%23'
 
@@ -38,9 +38,27 @@ app.post(
               let name = json['name']
               let favCard = json['currentFavouriteCard']
               let arena = json['arena']
-              //console.log(json['arena'])
+              let explevel = json['expLevel']
+              let trophies = json['trophies']
+              let bestTrophies = json['bestTrophies']
+              let battleCount = json['battleCount']
+              let wins = json['wins']
+              let losses = json['losses']
+              let threeCrowns = json['threeCrownWins']
+
+              let battleHistroy = {
+                explevel,
+                trophies,
+                bestTrophies,
+                battleCount,
+                wins,
+                losses,
+                threeCrowns,
+              }
+
+              console.log(fav.battleHistroy)
               //res.send(JSON.stringify(json))
-              fav = { favCard, name, arena }
+              fav = { favCard, name, arena, battleHistroy }
               res.redirect('/result')
             }
           })
@@ -61,4 +79,4 @@ app.get('/notfound', function (req, res) {
   res.render('NotFound')
 })
 
-app.listen(process.env.PORT || 5000, console.log(`Server running in 3000`))
+app.listen(3000, console.log(`Server running in 3000`))
