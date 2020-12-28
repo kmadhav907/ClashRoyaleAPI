@@ -12,7 +12,8 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(express.static('public'))
-let fav = { favCard: null, name: null, arena: null, battleHistroy: null }
+let fav = null
+let cards = null
 const baseURL = 'https://api.clashroyale.com/v1'
 const endpoint = '/players/%23'
 
@@ -56,8 +57,8 @@ app.post(
                 threeCrowns,
               }
 
-              console.log(fav.battleHistroy)
-              //res.send(JSON.stringify(json))
+              cards = json['cards']
+
               fav = { favCard, name, arena, battleHistroy }
               res.redirect('/result')
             }
@@ -72,7 +73,17 @@ app.post(
 )
 
 app.get('/result', function (req, res) {
+  if (fav === null) {
+    res.redirect('/')
+  }
   res.render('Result', { fav: fav })
+})
+
+app.get('/cards', function (req, res) {
+  if (cards === null) {
+    res.redirect('/')
+  }
+  res.render('Cards', { cards: cards })
 })
 
 app.get('/notfound', function (req, res) {
