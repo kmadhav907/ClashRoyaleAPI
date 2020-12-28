@@ -1,0 +1,28 @@
+<%-include('Header.ejs') %>
+<div class='col-md-11'>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Current Level
+            </th>
+            <th>
+                &nbsp; &nbsp; 
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+<% cards.forEach(card => { %>
+<tr>
+<th>   <h6> <%=card['name']  %> </h6> </th>
+<th> <h5><%= card['level']  %> </h5></th>
+<th>  <img style='height: 20%; width: 10%;' src=<%= card['iconUrls']['medium']  %>> </th> 
+</tr>
+<% }); %>
+</tbody>
+</table>
+</div>
+<%-include('Footer.ejs') %>
